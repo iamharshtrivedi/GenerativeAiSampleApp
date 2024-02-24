@@ -15,7 +15,6 @@
  */
 
 package com.google.ai.sample
-
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.CreationExtras

@@ -12,10 +12,7 @@ You can clone this repository or import the project from Android Studio followin
 
 ## Screenshots
 
-<img src="screenshots/Screenshots1.png" alt="Screenshot">
-<img src="screenshots/Screenshots2.png" alt="Screenshot">
-<img src="screenshots/Screenshots3.png" alt="Screenshot">
-<img src="screenshots/Screenshots4.png" alt="Screenshot">
+<img src="screenshots/screenshots.png" alt="Screenshot">
 
 ## Requirements
 
@@ -23,7 +20,7 @@ You can clone this repository or import the project from Android Studio followin
 2. Add your API Key to the `local.properties` file in this format
 
 ```txt
-apiKey=AIzaSyDfOyBVGmD5YLEOZJtAUCrPsPTPgB0_r8Q
+apiKey=YOUR_API_KEY
 ```
 ## Features
 

@@ -15,8 +15,8 @@ val generativeModel = GenerativeModel(
 
 val cookieImage: Bitmap = // ...
 val inputContent = content() {
-  image(cookieImage)
-  text("Does this look store-bought or homemade?")
+    image(cookieImage)
+    text("Does this look store-bought or homemade?")
 }
 
 val response = generativeModel.generateContent(inputContent)

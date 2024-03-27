@@ -1,34 +1,65 @@
-# Google Generative AI Sample for Android (Kotlin)
+# Google AI SDK for Android
 
-This Android sample app demonstrates how to use state-of-the-art 
-generative AI models (like Gemini) to build AI-powered features and applications.
+The Google AI client SDK for Android enables developers to use Google's state-of-the-art generative AI models (like Gemini) to build AI-powered features and applications. This SDK supports use cases like:
+- Generate text from text-only input
+- Generate text from text-and-images input (multimodal)
+- Build multi-turn conversations (chat)
 
-To try out this sample app, you need to use latest stable version of Android Studio. 
-However, if you want to latest lint checks and AI productivity features in Android 
-Studio use the latest preview version of [Android Studio](https://developer.android.com/studio/preview).
+For example, with just a few lines of code, you can access Gemini's multimodal capabilities to generate text from text-and-image input:
 
-You can clone this repository or import the project from Android Studio following the steps
-[here](https://developer.android.com/jetpack/compose/setup#sample).
+```kotlin
+val generativeModel = GenerativeModel(
+    modelName = "gemini-1.0-pro-vision-latest",
+    apiKey = BuildConfig.apiKey
+)
 
-## Screenshots
+val cookieImage: Bitmap = // ...
+val inputContent = content() {
+  image(cookieImage)
+  text("Does this look store-bought or homemade?")
+}
 
-<img src="screenshots/screenshots.png" alt="Screenshot">
-
-## Requirements
-
-1. Follow the instructions on Google AI Studio [setup page](https://makersuite.google.com/app/apikey) to obtain an API key.
-2. Add your API Key to the `local.properties` file in this format
-
-```txt
-apiKey=YOUR_API_KEY
+val response = generativeModel.generateContent(inputContent)
+print(response.text)
 ```
-## Features
 
-This sample showcases the following API capablilites:
-* Generate Text - demonstrates the Text feature from the SDK
-* Photo Reasoning - demonstrates the MultiModal feature from the SDK
-* Chat - demonstrates the Multi-turn Conversations feature from the SDK
+> [!NOTE]
+> If you want to access Gemini on-device (Gemini Nano), check out the [Google AI Edge SDK for Android](https://ai.google.dev/tutorials/android_aicore), which is enabled via Android AICore.
 
+## Try out the sample Android app
+
+This repository contains a sample app demonstrating how the SDK can access and utilize the Gemini model for various use cases.
+
+To try out the sample app you can directly import the project from Android Studio
+via **File > New > Import Sample** and searching for *Generative AI Sample* or follow these steps below:
+
+1.  Check out this repository.\
+    `git clone https://github.com/google/generative-ai-android`
+
+1.  [Obtain an API key](https://makersuite.google.com/app/apikey) to use with the Google AI SDKs.
+
+1.  Open and build the sample app in the `generativeai-android-sample` folder of this repo.
+
+1.  Paste your API key into the `apiKey` property in the `local.properties` file.
+
+1.  Run the app.
+
+## Installation and usage
+
+Add the dependency `implementation("com.google.ai.client.generativeai:generativeai:<version>"`) to your Android project.
+
+For detailed instructions, you can find a [quickstart](https://ai.google.dev/tutorials/android_quickstart) for the Google AI client SDK for Android in the Google documentation.
+
+This quickstart describes how to add your API key and the SDK's dependency to your app, initialize the model, and then call the API to access the model. It also describes some additional use cases and features, like streaming, counting tokens, and controlling responses.
 ## Documentation
 
-You can find the quick start documentation for the Android Generative AI API [here](https://ai.google.dev/tutorials/android_quickstart).
+Find complete documentation for the Google AI SDKs and the Gemini model in the Google documentation:\
+https://ai.google.dev/docs
+## Contributing
+
+See [Contributing](https://github.com/google/generative-ai-android/blob/main/CONTRIBUTING.md) for more information on contributing to the Google AI client SDK for Android.
+
+## License
+
+The contents of this repository are licensed under the
+[Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
